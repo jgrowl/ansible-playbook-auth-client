@@ -10,6 +10,7 @@ sssd_krb5_kdc_ip: kerberos.example.com # ie. kerberos.example.com
 sssd_krb5_realm: EXAMPLE.COM # ie. EXAMPLE.COM 
 
 # krb5.conf
+krb_krb5_conf: False
 auth_client_realm: EXAMPLE.com
 auth_client_kdc: kerberos.example.com
 auth_client_admin_server: kerberos.example.com
