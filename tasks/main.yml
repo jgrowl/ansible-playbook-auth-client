@@ -10,38 +10,38 @@
   tags: auth-client
 
 - name: ensure krb5.conf exists
-  template: src=templates/etc/krb5.conf.j2 dest=/etc/krb5.conf owner=root group=root
-  tags: krb
+  template: src=etc/krb5.conf.j2 dest=/etc/krb5.conf owner=root group=root
+  tags: auth auth-client krb
 
 - name: ensure nsswitch.conf exists
-  template: src=templates/etc/nsswitch.conf.j2 dest=/etc/nsswitch.conf owner=root group=root
-  tags: auth-client
+  template: src=etc/nsswitch.conf.j2 dest=/etc/nsswitch.conf owner=root group=root
+  tags: auth auth-client
 
 - name: ensure /etc/polkit-1/localauthority.conf.d exists
   file: path=/etc/polkit-1/localauthority.conf.d/ state=directory owner=root group=root
-  tags: auth-client
+  tags: auth auth-client
 
 - name: ensure 51-ubuntu-admin.conf exists
-  template: src=templates/etc/polkit-1/localauthority.conf.d/51-ubuntu-admin.conf.j2 dest=/etc/polkit-1/localauthority.conf.d/51-ubuntu-admin.conf owner=root group=root
-  tags: auth-client
+  template: src=etc/polkit-1/localauthority.conf.d/51-ubuntu-admin.conf.j2 dest=/etc/polkit-1/localauthority.conf.d/51-ubuntu-admin.conf owner=root group=root
+  tags: auth auth-client
 
 - name: ensure /etc/lightdm exists
   file: path=/etc/lightdm/lightdm.conf state=directory owner=root group=root
-  tags: auth-client
+  tags: auth auth-client
 
 - name: ensure lightdm.conf exists
-  template: src=templates/etc/lightdm/lightdm.conf.j2 dest=/etc/lightdm/lightdm.conf owner=root group=root
-  tags: auth-client
+  template: src=etc/lightdm/lightdm.conf.j2 dest=/etc/lightdm/lightdm.conf owner=root group=root
+  tags: auth auth-client
 
 - name: configure sudoers to allow domainadmins
-  template: src=templates/etc/sudoers.j2 dest=/etc/sudoers owner=root group=root mode=0440
-  tags: auth-client sudo
+  template: src=etc/sudoers.j2 dest=/etc/sudoers owner=root group=root mode=0440
+  tags: auth auth-client sudo
 
 - name: Ensure imapd is configured
-  template: src=templates/etc/idmapd.conf.j2 dest=/etc/idmapd.conf owner=root group=root mode=0644
+  template: src=etc/idmapd.conf.j2 dest=/etc/idmapd.conf owner=root group=root mode=0644
   notify:
     - restart idmapd
-  tags: auth-client idmapd
+  tags: auth auth-client idmapd
 
 #- name: ensure there is a ansible directory
 #  file: path=~root/.ansible state=directory owner=root group=root
