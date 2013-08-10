@@ -1,0 +1,3 @@
+[submodule "roles/sssd"]
+	path = roles/sssd
+	url = https://github.com/jgrowl/ansible-playbook-sssd.git
