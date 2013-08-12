@@ -1,1 +1,1 @@
-%domainadmins   ALL=(ALL:ALL) ALL
+%domainadmins   ALL=(ALL:ALL) NOPASSWD: ALL
